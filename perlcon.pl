@@ -4,27 +4,6 @@ use 5.010;
 use strict;
 use warnings;
 
-local $, = ', ';
-
-my $var = "hello";
-my @var = (1, 2, 3, 5, 8, 13);
-my %var = (Steve => 21, Bob => 19, Alice => 22);
-
-say scalar $var  ; # hello (the scalar itself)
-say scalar @var  ; # 6     (the length of the array)
-say scalar %var  ; # 3/8   (some internal value; don't rely on this)
-
-say '';
-
-my @arr;
-
-@arr = $var;
-say @arr;    # hello (a list containing only one element)
-@arr = @var;
-say @arr;    # 1, 2, 3, 5, 8, 13 (the original list)
-@arr = %var;
-say @arr;    # Bob, 19, Steve, 21, Alice, 22 (a list of alternating key-value pairs)
-
 =pod
 
 There are three contexts: scalar, list, and void. There are three major types of variables:
@@ -54,3 +33,24 @@ runs of the same program.
 =back
 
 =cut
+
+local $, = ', ';
+
+my $var = "hello";
+my @var = (1, 2, 3, 5, 8, 13);
+my %var = (Steve => 21, Bob => 19, Alice => 22);
+
+say scalar $var  ; # hello (the scalar itself)
+say scalar @var  ; # 6     (the length of the array)
+say scalar %var  ; # 3/8   (some internal value; don't rely on this)
+
+say '';
+
+my @arr;
+
+@arr = $var;
+say @arr;    # hello (a list containing only one element)
+@arr = @var;
+say @arr;    # 1, 2, 3, 5, 8, 13 (the original list)
+@arr = %var;
+say @arr;    # Bob, 19, Steve, 21, Alice, 22 (a list of alternating key-value pairs)
